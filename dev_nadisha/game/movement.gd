@@ -15,10 +15,12 @@ func get_input():
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
+ 
+var collision = get_slide_collision()
 
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 
 func _on_Area2D_body_entered(body):
-	get_tree().change_scene("res://change_scenes/textbox_control_tutorial.tscn")
+	
